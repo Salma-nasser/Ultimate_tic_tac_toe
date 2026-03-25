@@ -1,0 +1,17 @@
+# Environment variables
+.env
+
+# SSL Certificates and Private Keys
+*.pem
+key.pem
+cert.pem
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Logs
+*.log
+npm-debug.log*

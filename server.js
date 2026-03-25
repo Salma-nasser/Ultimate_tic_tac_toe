@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { createServer } = require('https');
 const { Server } = require('socket.io');
@@ -7,8 +8,8 @@ const fs = require('fs');
 
 const app = express();
 const httpServer = createServer({
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
+  key: fs.readFileSync(process.env.SSL_KEY_PATH || 'key.pem'),
+  cert: fs.readFileSync(process.env.SSL_CERT_PATH || 'cert.pem')
 }, app);
 const io = new Server(httpServer, {
   cors: {
